@@ -15,7 +15,7 @@ public class Surround4Panel extends JPanel {
     private JMenuItem quitItem;
     private Surround4Game game;
     private JMenuItem newGameItem;
-
+    private int num;
 
 
 
@@ -38,8 +38,10 @@ public class Surround4Panel extends JPanel {
             System.out.print("This is not a valid number!");
         }
 
-        String play = JOptionPane.showInputDialog(null,"Who starts first?");
-        int pNum = Integer.parseInt(play);
+        num = 0;
+        while(num < 0 || num > player) {
+            num = Integer.parseInt(JOptionPane.showInputDialog(null, "Who starts first?"));
+        }
 
         createBoard();
         add(panel1, BorderLayout.CENTER);
