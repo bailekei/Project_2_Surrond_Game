@@ -25,6 +25,7 @@ public class Cell {
 	}
 	
 	public int getPlayeNumber() {
+
 		return playeNumber;
 	}
 }
