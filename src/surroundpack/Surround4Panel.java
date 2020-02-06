@@ -17,12 +17,29 @@ public class Surround4Panel extends JPanel {
     private JMenuItem newGameItem;
 
 
+
+
     public Surround4Panel(JMenuItem pQuitItem) {
         quitItem = pQuitItem;
         listen = new ButtonListener();
 
         setLayout(new BorderLayout());
         panel1 = new JPanel();
+
+        String brdSize = JOptionPane.showInputDialog(10, "Enter in the size of the board: ");
+        int bSize = Integer.parseInt(brdSize);
+
+        String players = JOptionPane.showInputDialog(2, "Enter number of Players: ");
+        int pNumber = Integer.parseInt(players);
+
+        if (bSize > 3 && bSize < 20) {
+            System.out.println(bSize);
+        } else {
+            System.out.print("This is not a valid number!");
+        }
+
+        String play = JOptionPane.showInputDialog(null,"Who starts first?");
+        int pNum = Integer.parseInt(play);
 
         createBoard();
         add(panel1, BorderLayout.CENTER);
