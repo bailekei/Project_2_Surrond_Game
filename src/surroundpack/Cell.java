@@ -2,7 +2,7 @@ package surroundpack;
 
 public class Cell {
 
-	private int playeNumber;
+	private int playerNumber;
 	/*
 	 *  First, the Surround4 game class will only use the player
 	 *   number to determine a winner.
@@ -19,14 +19,14 @@ public class Cell {
 	 *  	
 	 */
 
-	public Cell(int playeNumber) {
+	public Cell(int playerNumber) {
 		super();
-		this.playeNumber = playeNumber;
+		this.playerNumber = playerNumber;
 	}
 	
-	public int getPlayeNumber() {
+	public int getPlayerNumber() {
 
-		return playeNumber;
+		return playerNumber;
 	}
 }
 
