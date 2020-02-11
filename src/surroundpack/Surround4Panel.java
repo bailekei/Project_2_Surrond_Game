@@ -106,7 +106,9 @@ public class Surround4Panel extends JPanel {
 				System.exit(1);
 
             if (e.getSource() == newGameItem){
-                game.reset();
+                panel1.removeAll();
+
+                panel1.revalidate();
 
             }
 			for (int row = 0; row < board.length; row++)
