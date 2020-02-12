@@ -20,14 +20,20 @@ public class Surround4Panel extends JPanel {
 
 
     public Surround4Panel(JMenuItem pQuitItem) {
+        //this quitItem quits the game and newGame item creates a new game.
         quitItem = pQuitItem;
         listen = new ButtonListener();
-
+/**
+ * this sets the layout of the buttons on the board and a new panel for the board
+ */
         setLayout(new BorderLayout());
         //raisedetched = BorderFactory.createEtchedBorder(EtchedBorder.Raised)
         //Surround4Panel.setBorder(BorderFactory.createMatteBorder(10,10,10,10, Color.cyan));
         panel1 = new JPanel();
-
+/**
+ * This sets the default board size to 10
+ * This also asks the player what size board they want as long as its larger than three and smaller than twenty
+ */
         int bSize = 10;
         try{
         String brdSize = JOptionPane.showInputDialog("Enter in the size of the board: ", 10);
