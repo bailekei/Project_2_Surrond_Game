@@ -1,5 +1,7 @@
 package surroundpack;
 
+import javax.swing.*;
+
 public class Cell {
 
 	private int playerNumber;
@@ -22,11 +24,14 @@ public class Cell {
 	public Cell(int playerNumber) {
 		super();
 		this.playerNumber = playerNumber;
+
 	}
 	
 	public int getPlayerNumber() {
 
 		return playerNumber;
 	}
+
+
 }
 

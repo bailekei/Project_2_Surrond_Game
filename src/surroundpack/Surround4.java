@@ -39,5 +39,7 @@ public class Surround4 {
 		frame.add(panel);
 		frame.setSize(600, 600);
 		frame.setVisible(true);
+
+		//timesWon = new JLabel();
 	}
 }

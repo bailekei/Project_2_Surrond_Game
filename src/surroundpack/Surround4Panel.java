@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class Surround4Panel extends JPanel {
 
@@ -20,10 +21,13 @@ public class Surround4Panel extends JPanel {
 
 
     public Surround4Panel(JMenuItem pQuitItem) {
+
         quitItem = pQuitItem;
         listen = new ButtonListener();
 
         setLayout(new BorderLayout());
+        //raisedetched = BorderFactory.createEtchedBorder(EtchedBorder.Raised)
+        Surround4Panel.setBorder(BorderFactory.createMatteBorder(10,10,10,10, Color.cyan));
         panel1 = new JPanel();
 
         int bSize = 10;
@@ -98,6 +102,7 @@ public class Surround4Panel extends JPanel {
         game = new Surround4Game();
 		quitItem.addActionListener(listen);
 
+
 	}
 
     private class ButtonListener implements ActionListener {
@@ -107,6 +112,8 @@ public class Surround4Panel extends JPanel {
 
             if (e.getSource() == newGameItem){
                 panel1.removeAll();
+
+
 
                 panel1.revalidate();
 
