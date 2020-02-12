@@ -79,16 +79,70 @@ public class Surround4Game {
 //					}
 //				}
 				// top-left corner case (check 2 sides only)
-				if (row == 0 && col == 0){
+				if (row == 0 && col == 0) {
 					if (board[0][1] != null && board[1][0] != null)
-						if (board[0][1].getPlayerNumber() == board[1][0].getPlayerNumber())
-							return player;}
-// left-border case (excluding corners - check 3 sides only)
-				if (row != 0 && row != 10-1 && col == 0) {
+						if (board[0][1].getPlayerNumber() == board[1][0].getPlayerNumber() && board[0][1].getPlayerNumber() == board[1][1].getPlayerNumber())
+							if (board[0][1].getPlayerNumber() != board[1][0].getPlayerNumber()) {
+								return board[0][1].getPlayerNumber();
+							}
+				}
+				// bottom-left corner case (check 2 sides only)
+				if (row == 9 && col == 0) {
+					if (board[9][1] != null && board[9][0] != null)
+						if (board[9][1].getPlayerNumber() == board[8][0].getPlayerNumber() && board[9][1].getPlayerNumber() == board[8][1].getPlayerNumber())
+							if (board[9][1].getPlayerNumber() != board[9][0].getPlayerNumber()) {
+								return board[9][1].getPlayerNumber();
+							}
+				}
+				// top-right corner case (check 2 sides only)
+				if (row == 0 && col == 9) {
+					if (board[0][9] != null && board[1][9] != null)
+						if (board[0][8].getPlayerNumber() == board[1][9].getPlayerNumber() && board[1][8].getPlayerNumber() == board[0][8].getPlayerNumber())
+							if (board[0][9].getPlayerNumber() != board[0][8].getPlayerNumber()) {
+								return board[1][9].getPlayerNumber();
+							}
+				}
+				// bottom-right corner case (check 2 sides only)
+				if (row == 9 && col == 9) {
+					if (board[8][9] != null && board[9][8] != null)
+						if (board[8][9].getPlayerNumber() == board[8][8].getPlayerNumber() && board[9][8].getPlayerNumber() == board[8][8].getPlayerNumber())
+							if (board[9][9].getPlayerNumber() != board[9][8].getPlayerNumber()) {
+								return board[8][9].getPlayerNumber();
+							}
+				}
+				// left-border case (excluding corners - check 3 sides only)
+				if (row != 0 && row != 9 && col == 0) {
 					if (board[row - 1][col] != null && board[row][col + 1] != null && board[row + 1][col] != null) {
 						if (board[row - 1][col].getPlayerNumber() == board[row][col + 1].getPlayerNumber() &&
 								board[row - 1][col].getPlayerNumber() == board[row + 1][col].getPlayerNumber())
-							return player; // just pick one of them
+							return board[row-1][col].getPlayerNumber(); // just pick one of them
+					}
+				}
+				// right-border case (excluding corners - check 3 sides only)
+				if (row != 0 && row != 9 && col == 9) {
+					if (board[row - 1][col] != null && board[row][col - 1] != null && board[row + 1][col] != null) {
+						if (board[row - 1][col].getPlayerNumber() == board[row][col - 1].getPlayerNumber() &&
+								board[row - 1][col].getPlayerNumber() == board[row + 1][col].getPlayerNumber())
+							return board[row+1][col].getPlayerNumber(); // just pick one of them
+					}
+				}
+				// middle win
+				if (row != 0 && row != 9 && col != 0 && col != 9) {
+					if (board[row - 1][col] != null && board[row][col - 1] != null && board[row + 1][col] != null) {
+						if (board[row + 1][col].getPlayerNumber() == board[row][col - 1].getPlayerNumber() &&
+								board[row - 1][col].getPlayerNumber() == board[row + 1][col].getPlayerNumber() && board[row][col + 1].getPlayerNumber() == board[row + 1][col].getPlayerNumber())
+							if (board[row][col].getPlayerNumber() != board[row+1][col].getPlayerNumber()) {
+								return board[row + 1][col].getPlayerNumber(); // just pick one of them
+							}
+					}
+				}
+
+				//side win return to later
+				if (board[row][col] != null && col != 0 && col != 9) {
+					if (board[row][col-1] != null && board[row][col + 1] != null) {
+						if (board[row][col-1].getPlayerNumber() == board[row][col + 1].getPlayerNumber())
+							if(board[row][col-1].getPlayerNumber() != board[row][col].getPlayerNumber())
+							return board[row][col+1].getPlayerNumber(); // just pick one of them
 					}
 				}
 			}
