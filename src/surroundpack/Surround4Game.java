@@ -5,12 +5,18 @@ public class Surround4Game {
 	private int player;
 	private Cell playersnum;
 
+	/**
+	 * this method creates the default board size of 10 cells by 10 cells and creates the first player
+	 */
 	public Surround4Game() {
 		//super();
 		board = new Cell[10][10];
 		this.player = 1;
 	}
 
+	/**
+	 * the method below will reset the board so the players can continue to play without the score to reset
+	 */
 	public void reset() {
 		for (int r = 0; r < 10; r++) {
 			//goes through all columns
@@ -21,14 +27,29 @@ public class Surround4Game {
 		}
 	}
 
+	/**
+	 * this method will select the square in the certain row and the column that it is in
+	 * this
+	 * @param row
+	 * @param col
+	 * @return the row and cell that the button was pushed in
+	 */
 	public Cell getCell(int row, int col) {
 		return board[row][col];
 	}
 
+	/**
+	 * this method gets the current player whether is is player one or player 99
+	 * @return the player that is currently selecting a square
+	 */
 	public int getCurrentPlayer() {
 		return player;
 	}
 
+	/**
+	 * this method allows the next player in line to select a tile or start to play
+	 * @return the number of the next player
+	 */
 	public int nextPlayer() {
 //		player = player + 1;
 		if( player>2)
@@ -39,12 +60,12 @@ public class Surround4Game {
 		return player;
 	}
 
-    /*******************************************************************************************************************
+    /**
      *Method determines if the row, col that was selected was an empty square
 	 *
      * @param row int current row
      * @param col int current col
-     *******************************************************************************************************************/
+     */
 
 
     public boolean select(int row, int col) {
@@ -58,9 +79,9 @@ public class Surround4Game {
 			return false;
 	}
 
-    /*******************************************************************************************************************
+    /**
      *Method  that selects a winner if set conditions are met
-     *******************************************************************************************************************/
+     */
 
 	public int getWinner() {
 

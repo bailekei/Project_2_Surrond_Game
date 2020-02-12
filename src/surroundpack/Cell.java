@@ -19,11 +19,19 @@ public class Cell {
 	 *  	
 	 */
 
+	/**
+	 * this method creates the player numbers 0-how ever many players there are on the board
+	 * @param playerNumber
+	 */
 	public Cell(int playerNumber) {
 		super();
 		this.playerNumber = playerNumber;
 	}
-	
+
+	/**
+	 * this method places the player number on the tile of their choosing
+	 * @return player number on the tile that they choose.
+	 */
 	public int getPlayerNumber() {
 
 		return playerNumber;
